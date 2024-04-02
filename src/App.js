@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const games = [
@@ -12,6 +10,10 @@ const games = [
 ];
 
 function Header() {
+    let I = "am sad"
+    if (I == "am sad") {
+        console.log("Sadly, I'm sad");
+    }
     return (
         <header className="App-header">
             <h2>Games that I got for my Birthday:</h2>
