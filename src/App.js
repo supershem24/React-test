@@ -10,8 +10,8 @@ const games = [
 ];
 
 function Header() {
-    let I = "am sad"
-    if (I == "am sad") {
+    let iAmSad = "am sad"
+    if (iAmSad === "am sad") {
         console.log("Sadly, I'm sad");
     }
     return (
@@ -23,7 +23,7 @@ function Header() {
 
 function GameDisplay() {
     const listGames = games.map(game =>
-        <li>
+        <li key={game.id}>
             {game.title}
         </li>
     );
