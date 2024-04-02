@@ -14,48 +14,20 @@ const games = [
 function Header() {
     return (
         <header className="App-header">
-            <h2>Games that I got for my Birthday</h2>
+            <h2>Games that I got for my Birthday:</h2>
         </header>
     );
 }
 
 function GameDisplay() {
-    const [currentGame, setCurrentGame] = useState(games[0]);
-
-    function setGame(id = "none"){
-        if (id == "none") {
-            setCurrentGame(games[Math.Floor(Math.random() * 6)]);
-        } else if (id >= 0 && id < 6) {
-            setCurrentGame(games[id - 1]);
-        }
-    }
-
-    return (
-        <>
-            <div id="game">
-                <h2>{currentGame.title}</h2>
-            </div>
-            <div>
-                <input id="gameID" type="text" placeholder="Type an id here (1 through 6):"></input>
-                <button onClick={setGame(Number(document.getElementById("gameID")) - 1)}>Set Game to current ID</button>
-                <button onClick={setGame}>Randomize Game Shown</button>
-            </div>
-        </>
+    const listGames = games.map(game =>
+        <li>
+            {game.title}
+        </li>
     );
-}
-
-function MagicButton() {
-    const [count, setCount] = useState(0);
-    function doMagic() {
-        setCount(count + 1);
-        alert('Are you not entertained?');
-    }
-
     return (
-        <button onClick={doMagic}>
-            Magic {count} times
-        </button>
-    );
+        <ul>{listGames}</ul>
+    )
 }
 
 function ShamelessPlug() {
@@ -69,28 +41,11 @@ function App() {
   return (
 
     <div className="App">
-          <header className="App-header">
-              <GameDisplay />
-              <ShamelessPlug />
-              <MagicButton />
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-              <p>
-                  Or check out my&nbsp;
-                  <a href="https://shawnporto-portfolio.netlify.app/">
-                      Portfolio
-                  </a>
-              </p>
-              <p> With love and Care,</p>
-              <p>Shawn</p>
-      </header>
+        <Header/>
+        <GameDisplay />
+          <ShamelessPlug />
+          <br></br>
+          <p>I will be honest, the site was supposed to look better than this, but I really couldn't get the logic to work, I tried wayyyy to hard to have first state across multiple functions, which didn't work without a parent function. But then I tried to pass an argument through a react function, it wouldn't allow me, and apparently there are answers online for all of these, but none of them worked on this project. Now it's 11:39, so I'm just gonna turn this in, have a good Day</p>
     </div>
   );
 }
